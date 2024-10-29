@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <main>
+      <div class="weather-card">
+        <div class="search-container">
+          <input type="text" placeholder="Enter city name" spellcheck="false" />
+          <button><img src="/Images/search.png" alt="search icon" /></button>
+        </div>
+        <div class="suggestion-box"></div>
+        <div class="weather-details">
+          <button class="favorites">
+            <img src="/Images/favourite.png" alt="" />
+          </button>
+          <div class="fav-list">
+            <h1>Favorite Cities</h1>
+            <div class="list">
+              <p>List will show here</p>
+            </div>
+          </div>
+          <img src="/Images/rain.png" class="icon-weather" />
+          <h1 class="temp-value">22°C</h1>
+          <h2 class="city-name">New York</h2>
+          <div class="temperature-toggle">
+            <button class="toggle-button active" data-unit="celsius">°C</button>
+            <button class="toggle-button" data-unit="fahrenheit">°F</button>
+          </div>
+          <div class="weather-info">
+            <div class="info-column">
+              <img src="Images/humidity.png" alt="humidity" />
+              <div>
+                <p class="humidity-value">50%</p>
+                <p>Humidity</p>
+              </div>
+            </div>
+            <div class="info-column">
+              <img src="Images/windy.png" alt="windy" />
+              <div>
+                <p class="wind-value">15 km/h</p>
+                <p>Wind Speed</p>
+              </div>
+            </div>
+            <div class="info-column">
+              <img src="Images/uv.png" alt="uv" />
+              <p class="uv-index-value">uv</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/script.js"></script>
+  </body>
+</html>
