@@ -56,7 +56,6 @@ async function checkWeather(city) {
   }
 }
 
-// Get UV index data
 async function checkUVIndex(lat, lon) {
   try {
     const uvUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -69,7 +68,6 @@ async function checkUVIndex(lat, lon) {
   }
 }
 
-// Display animation for temperature update
 function animateTemperature(targetTemp) {
   let currentTemp = 0;
   const increment = targetTemp / 60;
