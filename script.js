@@ -26,26 +26,26 @@ async function checkWeather(city) {
 
     switch (data.weather[0].main) {
       case "Clouds":
-        weatherIcon.src = "/Images/clouds.png";
+        weatherIcon.src = "Images/clouds.png";
         break;
       case "Clear":
-        weatherIcon.src = "/Images/clear.png";
+        weatherIcon.src = "Images/clear.png";
         break;
       case "Rain":
-        weatherIcon.src = "/Images/rain.png";
+        weatherIcon.src = "Images/rain.png";
         break;
       case "Drizzle":
-        weatherIcon.src = "/Images/drizzle.png";
+        weatherIcon.src = "Images/drizzle.png";
         break;
       case "Haze":
-        weatherIcon.src = "/Images/haze.png";
+        weatherIcon.src = "Images/haze.png";
         break;
       case "Fog":
       case "Mist":
-        weatherIcon.src = "/Images/fog.png";
+        weatherIcon.src = "Images/fog.png";
         break;
       default:
-        weatherIcon.src = "/Images/clear.png";
+        weatherIcon.src = "Images/clear.png";
     }
 
     checkUVIndex(data.coord.lat, data.coord.lon);
