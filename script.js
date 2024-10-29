@@ -7,10 +7,6 @@ const weatherIcon = document.querySelector(".icon-weather");
 const toggleButtons = document.querySelectorAll(".toggle-button");
 let currentTemperature;
 
-const favoritesList = document.querySelector(".favorites-list");
-const addFavoriteButton = document.querySelector(".add-favorite");
-const favoriteCities = new Set();
-
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
   const data = await response.json();
@@ -47,8 +43,11 @@ async function checkWeather(city) {
       case "Fog":
         weatherIcon.src = "/Images/fog.png";
         break;
+      case "Mist":
+        weatherIcon.src = "/Images/fog.png";
+        break;
       default:
-        weatherIcon.src = "/Images/default.png";
+        weatherIcon.src = "/Images/clear.png";
     }
 
     checkUVIndex(data.coord.lat, data.coord.lon);
@@ -136,6 +135,7 @@ function displaySuggestions(suggestions) {
       searchInput.value = city.name;
       checkWeather(city.name);
       suggestionBox.innerHTML = "";
+      searchInput.value = "";
     });
 
     suggestionBox.appendChild(div);
@@ -145,7 +145,6 @@ function displaySuggestions(suggestions) {
 searchInput.addEventListener("input", async () => {
   const query = searchInput.value;
   if (query.length > 1) {
-    // Fetch suggestions for 2 or more characters
     const suggestions = await fetchCitySuggestions(query);
     displaySuggestions(suggestions);
   }
@@ -154,6 +153,8 @@ searchInput.addEventListener("input", async () => {
 searchButton.addEventListener("click", () => {
   const city = searchInput.value;
   checkWeather(city);
+  searchInput.value = "";
+  document.querySelector(".suggestion-box").innerHTML = "";
 });
 
 toggleButtons.forEach((button) => {

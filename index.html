@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,14 +21,14 @@
         <div class="suggestion-box"></div>
         <div class="weather-details">
           <button class="favorites">
-            <img src="/Images/favourite.png" alt="" />
+            <img src="/Images/favourite.png" alt="favorites icon" />
           </button>
+
           <div class="fav-list">
             <h1>Favorite Cities</h1>
-            <div class="list">
-              <p>List will show here</p>
-            </div>
+            <div class="list"></div>
           </div>
+
           <img src="/Images/rain.png" class="icon-weather" />
           <h1 class="temp-value">22°C</h1>
           <h2 class="city-name">New York</h2>
@@ -55,5 +60,6 @@
       </div>
     </main>
     <script src="/script.js"></script>
+    <script src="/favorites.js"></script>
   </body>
 </html>
