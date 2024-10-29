@@ -98,7 +98,7 @@ function updateTemperatureDisplay(temp) {
 
 async function fetchCitySuggestions(query) {
   const response = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
   );
   const data = await response.json();
   return data;
@@ -160,10 +160,15 @@ function fetchDefaultWeather() {
         const response = await fetch(locationUrl);
         const data = await response.json();
         checkWeather(data.name);
+        fetchWeeklyForecast(data.name, apiKey);
       },
-      () => checkWeather("New York")
+      () => {
+        checkWeather("New York");
+        fetchWeeklyForecast("New York", apiKey);
+      }
     );
   } else {
     checkWeather("New York");
+    fetchWeeklyForecast("New York", apiKey);
   }
 }
