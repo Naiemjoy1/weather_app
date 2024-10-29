@@ -26,7 +26,7 @@ async function checkWeather(city) {
 
     switch (data.weather[0].main) {
       case "Clouds":
-        weatherIcon.src = "/Images/cloudy.png";
+        weatherIcon.src = "/Images/clouds.png";
         break;
       case "Clear":
         weatherIcon.src = "/Images/clear.png";
@@ -41,8 +41,6 @@ async function checkWeather(city) {
         weatherIcon.src = "/Images/haze.png";
         break;
       case "Fog":
-        weatherIcon.src = "/Images/fog.png";
-        break;
       case "Mist":
         weatherIcon.src = "/Images/fog.png";
         break;
@@ -51,12 +49,14 @@ async function checkWeather(city) {
     }
 
     checkUVIndex(data.coord.lat, data.coord.lon);
+    fetchWeeklyForecast(city, apiKey);
   } else {
     alert("City not found. Showing default city.");
     checkWeather("New York");
   }
 }
 
+// Get UV index data
 async function checkUVIndex(lat, lon) {
   try {
     const uvUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -69,6 +69,7 @@ async function checkUVIndex(lat, lon) {
   }
 }
 
+// Display animation for temperature update
 function animateTemperature(targetTemp) {
   let currentTemp = 0;
   const increment = targetTemp / 60;
@@ -94,23 +95,6 @@ function updateTemperatureDisplay(temp) {
     tempValue.innerHTML = `${Math.round(fahrenheitTemp)}°F`;
   } else {
     tempValue.innerHTML = `${Math.round(temp)}°C`;
-  }
-}
-
-function fetchDefaultWeather() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        const locationUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-        const response = await fetch(locationUrl);
-        const data = await response.json();
-        checkWeather(data.name);
-      },
-      () => checkWeather("New York")
-    );
-  } else {
-    checkWeather("New York");
   }
 }
 
@@ -168,3 +152,20 @@ toggleButtons.forEach((button) => {
 document.addEventListener("DOMContentLoaded", () => {
   fetchDefaultWeather();
 });
+
+function fetchDefaultWeather() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        const locationUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+        const response = await fetch(locationUrl);
+        const data = await response.json();
+        checkWeather(data.name);
+      },
+      () => checkWeather("New York")
+    );
+  } else {
+    checkWeather("New York");
+  }
+}
