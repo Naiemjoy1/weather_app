@@ -8,19 +8,19 @@
 .weather-card {
   width: 90%;
   max-width: 650px;
-  max-height: 650px;
   margin: 50px auto 0;
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
   background: linear-gradient(135deg, #6a5acd, #483d8b);
   color: #fff;
+  transition: background 0.3s ease;
 }
 
 .search-container {
   width: 100%;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -208,7 +208,6 @@
 }
 
 .favorite-item {
-  /* padding: 5px; */
   padding-bottom: 2px;
   cursor: pointer;
   display: flex;
@@ -231,6 +230,7 @@
   font-weight: 600;
   text-align: left;
 }
+
 .fav-list p {
   font-size: 10px;
   text-align: left;
@@ -238,8 +238,8 @@
 
 .days img {
   width: 30px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .week-container {
@@ -261,3 +261,51 @@
 .days p {
   font-size: 16px;
 }
+
+@media (max-width: 768px) {
+  .weather-card {
+    padding: 30px 25px;
+  }
+
+  .temp-value {
+    font-size: 50px;
+  }
+
+  .weather-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .suggestion-box {
+    width: 100%;
+  }
+
+  .fav-list {
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .temp-value {
+    font-size: 40px;
+  }
+
+  .search-container input {
+    font-size: 16px;
+  }
+
+  .toggle-button {
+    font-size: 14px;
+  }
+
+  .favorite-item {
+    font-size: 12px;
+  }
+
+  .days p {
+    font-size: 14px;
+  }
+}
+
+/* 01677876811 */

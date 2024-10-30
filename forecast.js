@@ -4,7 +4,6 @@ const forecastApiUrl =
 async function fetchWeeklyForecast(city, apiKey) {
   const response = await fetch(forecastApiUrl + city + `&appid=${apiKey}`);
   const data = await response.json();
-  console.log(data);
 
   const weekContainer = document.querySelector(".week-container");
   weekContainer.innerHTML = "";
@@ -19,7 +18,7 @@ async function fetchWeeklyForecast(city, apiKey) {
   });
 
   Object.values(dailyForecast)
-    .slice(0, 7)
+    .slice(1, 7)
     .forEach((day) => {
       const dayDiv = document.createElement("div");
       dayDiv.classList.add("days");
@@ -31,7 +30,6 @@ async function fetchWeeklyForecast(city, apiKey) {
         day: "numeric",
       });
       const icon = day.weather[0].main.toLowerCase();
-      console.log(icon);
 
       dayDiv.innerHTML = `
       <p>${dayName}</p>
