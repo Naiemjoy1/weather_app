@@ -27,22 +27,28 @@ async function checkWeather(city) {
     switch (data.weather[0].main) {
       case "Clouds":
         weatherIcon.src = "Images/clouds.png";
+        document.body.style.backgroundColor = "#D3D3D3";
         break;
       case "Clear":
         weatherIcon.src = "Images/clear.png";
+        document.body.style.backgroundColor = "#87CEEB";
         break;
       case "Rain":
         weatherIcon.src = "Images/rain.png";
+        document.body.style.backgroundColor = "#4682B4";
         break;
       case "Drizzle":
         weatherIcon.src = "Images/drizzle.png";
+        document.body.style.backgroundColor = "#A9A9A9";
         break;
       case "Haze":
         weatherIcon.src = "Images/haze.png";
+        document.body.style.backgroundColor = "#FF4500";
         break;
       case "Fog":
       case "Mist":
         weatherIcon.src = "Images/fog.png";
+        document.body.style.backgroundColor = "#F5F5F5";
         break;
       default:
         weatherIcon.src = "Images/clear.png";
