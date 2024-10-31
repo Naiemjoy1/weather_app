@@ -1,4 +1,5 @@
 const apiKey = "98c903957315f69bcf1dfc5dd52b02c7";
+
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 const searchInput = document.querySelector(".search-container input");
@@ -31,24 +32,34 @@ async function checkWeather(city) {
         break;
       case "Clear":
         weatherIcon.src = "Images/clear.png";
-        document.body.style.backgroundColor = "#87CEEB";
+        document.getElementById("weatherCard").style.backgroundColor =
+          "#87CEEB";
+        // document.body.style.backgroundColor = "#87CEEB";
         break;
       case "Rain":
         weatherIcon.src = "Images/rain.png";
-        document.body.style.backgroundColor = "#4682B4";
+        document.getElementById("weatherCard").style.backgroundColor =
+          "#4682B4";
+        // document.body.style.backgroundColor = "#4682B4";
         break;
       case "Drizzle":
         weatherIcon.src = "Images/drizzle.png";
-        document.body.style.backgroundColor = "#A9A9A9";
+        // document.body.style.backgroundColor = "#A9A9A9";
+        document.getElementById("weatherCard").style.backgroundColor =
+          "#A9A9A9";
         break;
       case "Haze":
         weatherIcon.src = "Images/haze.png";
-        document.body.style.backgroundColor = "#FF4500";
+        // document.body.style.backgroundColor = "#FF4500";
+        document.getElementById("weatherCard").style.backgroundColor =
+          "#FF4500";
         break;
       case "Fog":
       case "Mist":
         weatherIcon.src = "Images/fog.png";
-        document.body.style.backgroundColor = "#F5F5F5";
+        // document.body.style.backgroundColor = "#F5F5F5";
+        document.getElementById("weatherCard").style.backgroundColor =
+          "#F5F5F5";
         break;
       default:
         weatherIcon.src = "Images/clear.png";
