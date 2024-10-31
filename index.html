@@ -13,7 +13,6 @@
   </head>
   <body>
     <main>
-      <!-- <img src="Images/Animation - 1730214454211.gif" alt="" /> -->
       <div id="weatherCard" class="weather-card">
         <div class="search-container">
           <input type="text" placeholder="Enter city name" spellcheck="false" />
@@ -21,23 +20,31 @@
         </div>
         <div class="suggestion-box"></div>
         <div class="weather-details">
-          <button class="favorites">
-            <img src="Images/favourite.png" alt="favorites icon" />
-          </button>
+          <div class="current-weather" draggable="true">
+            <button class="favorites">
+              <img src="Images/favourite.png" alt="favorites icon" />
+            </button>
 
-          <div class="fav-list">
-            <h1>Favorite Cities</h1>
-            <div class="list"></div>
+            <div class="fav-list">
+              <h1>Favorite Cities</h1>
+              <div class="list"></div>
+            </div>
+            <img
+              src="Images/rain.png"
+              class="icon-weather"
+              alt="Weather Icon"
+            />
+            <h1 class="temp-value">22°C</h1>
+            <h2 class="city-name">New York</h2>
+            <div class="temperature-toggle">
+              <button class="toggle-button active" data-unit="celsius">
+                °C
+              </button>
+              <button class="toggle-button" data-unit="fahrenheit">°F</button>
+            </div>
           </div>
 
-          <img src="Images/rain.png" class="icon-weather" />
-          <h1 class="temp-value">22°C</h1>
-          <h2 class="city-name">New York</h2>
-          <div class="temperature-toggle">
-            <button class="toggle-button active" data-unit="celsius">°C</button>
-            <button class="toggle-button" data-unit="fahrenheit">°F</button>
-          </div>
-          <div class="weather-info">
+          <div class="weather-info" draggable="true">
             <div class="info-column">
               <img src="Images/humidity.png" alt="humidity" />
               <div>
@@ -57,12 +64,15 @@
               <p class="uv-index-value">uv</p>
             </div>
           </div>
-          <div class="week-container"></div>
+
+          <div class="week-container" draggable="true"></div>
         </div>
       </div>
     </main>
+
     <script src="script.js"></script>
     <script src="forecast.js"></script>
     <script src="favorites.js"></script>
+    <script src="drag-and-drop.js"></script>
   </body>
 </html>

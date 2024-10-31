@@ -182,7 +182,7 @@
   width: 25px;
 }
 
-.weather-details {
+.current-weather {
   position: relative;
 }
 
@@ -306,4 +306,16 @@
   .days p {
     font-size: 14px;
   }
+}
+
+.current-weather,
+.weather-info,
+.week-container {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.dragging {
+  opacity: 0.5;
 }
