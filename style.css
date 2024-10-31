@@ -371,3 +371,19 @@
   white-space: nowrap;
   z-index: 1000;
 }
+
+.chart-container {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+#weatherChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.humidity-bar .progress-fill {
+  background-color: #00ccff;
+}

@@ -21,9 +21,13 @@ async function checkWeather(city) {
     document.querySelector(".city-name").innerHTML = cityName;
     currentTemperature = data.main.temp;
     animateTemperature(currentTemperature);
+
     document.querySelector(".humidity-value").innerHTML =
       data.main.humidity + "%";
     document.querySelector(".wind-value").innerHTML = data.wind.speed + " km/h";
+
+    updateProgressBar("humidityProgress", data.main.humidity, 100);
+    updateProgressBar("windProgress", data.wind.speed, 100);
 
     switch (data.weather[0].main) {
       case "Clouds":
@@ -74,7 +78,9 @@ async function checkUVIndex(lat, lon) {
     const uvUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     const response = await fetch(uvUrl);
     const data = await response.json();
+
     document.querySelector(".uv-index-value").innerHTML = `${data.value}`;
+    updateProgressBar("uvProgress", data.value, 10);
   } catch (error) {
     document.querySelector(".uv-index-value").innerHTML = "N/A";
     console.error("Failed to fetch UV Index:", error);
