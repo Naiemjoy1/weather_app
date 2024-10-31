@@ -33,7 +33,7 @@ async function fetchWeeklyForecast(city, apiKey) {
 
       dayDiv.innerHTML = `
       <p>${dayName}</p>
-      <img src="Images/${icon}.png" alt="${day.weather[0].description}" />
+      <img src="Images/${icon}.svg" alt="${day.weather[0].description}" />
       <p>${Math.round(day.main.temp_max)}°/${Math.round(day.main.temp_min)}°</p>
     `;
       weekContainer.appendChild(dayDiv);

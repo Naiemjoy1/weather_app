@@ -12,7 +12,7 @@
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
-  /* background: linear-gradient(135deg, #6a5acd, #483d8b); */
+  background: skyblue;
   color: #fff;
   transition: background 0.3s ease;
 }
