@@ -345,7 +345,7 @@
 }
 
 #weatherCard {
-  color: inherit; /* Ensures text inherits color when changed */
+  color: inherit;
 }
 
 .weather-info p,
@@ -355,4 +355,19 @@
 .wind-value,
 .uv-index-value {
   color: inherit;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+  z-index: 1000;
 }

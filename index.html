@@ -45,14 +45,14 @@
           </div>
 
           <div class="weather-info">
-            <div class="info-column">
+            <div class="info-column" data-tooltip="Humidity: 50%">
               <img src="Images/humiditysvg.svg" alt="humidity" />
               <div>
                 <p class="humidity-value">50%</p>
                 <p>Humidity</p>
               </div>
             </div>
-            <div class="info-column">
+            <div class="info-column" data-tooltip="Wind Speed: 15 km/h">
               <img src="Images/windy.svg" alt="windy" />
               <div>
                 <p class="wind-value">15 km/h</p>
@@ -62,7 +62,10 @@
                 </div>
               </div>
             </div>
-            <div class="info-column">
+            <div
+              class="info-column"
+              data-tooltip="UV Index: 5 - Moderate exposure"
+            >
               <img src="Images/uv.svg" alt="uv" />
               <div>
                 <p class="uv-index-value">UV</p>
@@ -77,6 +80,7 @@
           <div class="week-container" draggable="true"></div>
         </div>
       </div>
+      <div id="tooltip" class="tooltip"></div>
     </main>
 
     <script src="script.js"></script>
@@ -84,5 +88,6 @@
     <script src="favorites.js"></script>
     <script src="drag-and-drop.js"></script>
     <script src="progressBars.js"></script>
+    <script src="tooltip.js"></script>
   </body>
 </html>
