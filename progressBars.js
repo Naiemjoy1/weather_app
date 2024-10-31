@@ -1,18 +1,15 @@
-function animateProgressBar(progressElement, targetValue) {
-  const maxWidth = 100; // Set the maximum width for progress bar (0-100%)
-  const currentValue = parseFloat(progressElement.style.width) || 0;
-  const increment = targetValue / 60; // Calculate the increment
-
-  let currentWidth = currentValue;
-  const interval = setInterval(() => {
-    currentWidth += increment;
-    if (currentWidth >= targetValue) {
-      currentWidth = targetValue;
-      clearInterval(interval);
-    }
-    progressElement.style.width = `${currentWidth}%`;
-  }, 16); // Animation frame
+function updateProgressBar(elementId, value, maxValue) {
+  const progressBar = document.getElementById(elementId);
+  const percentage = (value / maxValue) * 100;
+  progressBar.style.width = `${percentage}%`;
 }
 
-// Export the function for use in other files
-export { animateProgressBar };
+function loadWeatherData() {
+  const windSpeed = 15;
+  const uvIndex = 6;
+
+  updateProgressBar("windProgress", windSpeed, 100);
+  updateProgressBar("uvProgress", uvIndex, 11);
+}
+
+loadWeatherData();

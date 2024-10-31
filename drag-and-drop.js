@@ -6,6 +6,8 @@ const weatherDetails = document.querySelector(".weather-details");
 let draggedElement = null;
 
 draggableSections.forEach((section) => {
+  section.setAttribute("draggable", true);
+
   section.addEventListener("dragstart", (e) => {
     draggedElement = e.target;
     e.target.classList.add("dragging");

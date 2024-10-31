@@ -11,6 +11,7 @@ let currentTemperature;
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
   const data = await response.json();
+  console.log(data.weather[0]);
 
   if (response.ok) {
     let cityName = data.name;
@@ -28,41 +29,32 @@ async function checkWeather(city) {
     switch (data.weather[0].main) {
       case "Clouds":
         weatherIcon.src = "Images/clouds.png";
-        document.body.style.backgroundColor = "#D3D3D3";
+        updateColors("#D3D3D3", "#333333");
         break;
       case "Clear":
         weatherIcon.src = "Images/clear.png";
-        document.getElementById("weatherCard").style.backgroundColor =
-          "#87CEEB";
-        // document.body.style.backgroundColor = "#87CEEB";
+        updateColors("#87CEEB", "#000000");
         break;
       case "Rain":
         weatherIcon.src = "Images/rain.png";
-        document.getElementById("weatherCard").style.backgroundColor =
-          "#4682B4";
-        // document.body.style.backgroundColor = "#4682B4";
+        updateColors("#4682B4", "#ffffff");
         break;
       case "Drizzle":
         weatherIcon.src = "Images/drizzle.png";
-        // document.body.style.backgroundColor = "#A9A9A9";
-        document.getElementById("weatherCard").style.backgroundColor =
-          "#A9A9A9";
+        updateColors("#A9A9A9", "#ffffff");
         break;
       case "Haze":
         weatherIcon.src = "Images/haze.png";
-        // document.body.style.backgroundColor = "#FF4500";
-        document.getElementById("weatherCard").style.backgroundColor =
-          "#FF4500";
+        updateColors("#FF4500", "#ffffff");
         break;
       case "Fog":
       case "Mist":
         weatherIcon.src = "Images/fog.png";
-        // document.body.style.backgroundColor = "#F5F5F5";
-        document.getElementById("weatherCard").style.backgroundColor =
-          "#F5F5F5";
+        updateColors("#F5F5F5", "#333333");
         break;
       default:
         weatherIcon.src = "Images/clear.png";
+        updateColors("#87CEEB", "#000000");
     }
 
     checkUVIndex(data.coord.lat, data.coord.lon);
@@ -71,6 +63,11 @@ async function checkWeather(city) {
     alert("City not found. Showing default city.");
     checkWeather("New York");
   }
+}
+
+function updateColors(bgColor, textColor) {
+  document.getElementById("weatherCard").style.backgroundColor = bgColor;
+  document.getElementById("weatherCard").style.color = textColor;
 }
 
 async function checkUVIndex(lat, lon) {

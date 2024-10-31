@@ -44,7 +44,7 @@
             </div>
           </div>
 
-          <div class="weather-info" draggable="true">
+          <div class="weather-info">
             <div class="info-column">
               <img src="Images/humidity.png" alt="humidity" />
               <div>
@@ -57,11 +57,20 @@
               <div>
                 <p class="wind-value">15 km/h</p>
                 <p>Wind Speed</p>
+                <div class="progress-bar wind-speed-bar">
+                  <div class="progress-fill" id="windProgress"></div>
+                </div>
               </div>
             </div>
             <div class="info-column">
               <img src="Images/uv.png" alt="uv" />
-              <p class="uv-index-value">uv</p>
+              <div>
+                <p class="uv-index-value">UV</p>
+                <p>UV Index</p>
+                <div class="progress-bar uv-index-bar">
+                  <div class="progress-fill" id="uvProgress"></div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -74,5 +83,6 @@
     <script src="forecast.js"></script>
     <script src="favorites.js"></script>
     <script src="drag-and-drop.js"></script>
+    <script src="progressBars.js"></script>
   </body>
 </html>
