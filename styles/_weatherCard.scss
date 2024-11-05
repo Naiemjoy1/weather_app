@@ -1,0 +1,71 @@
+// _weatherCard.scss
+@import "variables";
+@import "mixins";
+@import "animations";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.weather-card {
+  width: 90%;
+  max-width: 650px;
+  margin: 50px auto 0;
+  @include rounded(20px);
+  padding: 40px 35px;
+  text-align: center;
+  background: $sky-blue;
+  color: $white;
+  @include transition(background, 0.3s);
+
+  .icon-weather {
+    width: 140px;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .temp-value {
+    font-size: 70px;
+    font-weight: 500;
+    animation: tempRise 1s ease-in-out;
+  }
+
+  .weather-info {
+    @include flex-center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 30px;
+  }
+
+  .humidity-value,
+  .wind-value,
+  .uv-index-value {
+    font-size: 28px;
+    margin-top: -6px;
+  }
+}
+
+.search-container {
+  @include flex-center;
+  width: 100%;
+  justify-content: space-between;
+  input,
+  button {
+    @include rounded;
+    border: none;
+    outline: none;
+  }
+}
+
+.suggestion-box,
+.fav-list {
+  position: absolute;
+  background: $light-blue;
+  @include rounded;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 150px;
+}

@@ -1,0 +1,29 @@
+// _progressBars.scss
+@import "variables";
+
+.progress-bar {
+  width: 100px;
+  height: 10px;
+  background-color: #e0e0e0;
+  @include rounded;
+  overflow: hidden;
+  margin-top: 5px;
+
+  .progress-fill {
+    height: 100%;
+    width: 0;
+    transition: width 1s ease-in-out;
+  }
+
+  &.wind-speed-bar .progress-fill {
+    background-color: $sky-blue;
+  }
+
+  &.uv-index-bar .progress-fill {
+    background-color: #ff8c00;
+  }
+
+  &.humidity-bar .progress-fill {
+    background-color: #00ccff;
+  }
+}
